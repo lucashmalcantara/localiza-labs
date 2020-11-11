@@ -10,5 +10,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="v1\Configurations\Swagger\" />
+    <Folder Include="v1\Models\" />
+  </ItemGroup>
+
 
 </Project>
