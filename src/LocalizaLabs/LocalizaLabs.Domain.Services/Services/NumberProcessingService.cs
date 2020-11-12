@@ -55,11 +55,28 @@ namespace LocalizaLabs.Domain.Services.Services
 
             var numberProcessingResult = new NumberProcessingResult(numberProcessingId, number, startOfProcessing);
 
-            for (long i = number; i > 0; i--)
+            var cacheResult = GetFromCache(number);
+
+            if (cacheResult != null)
             {
-                if (IsDivider(number, i))
+                MergeFromCacheResult(numberProcessingResult, cacheResult);
+                SimulatedPersistence.Instance.NumberProcessingResults.Add(numberProcessingResult);
+                SetAsReady(numberProcessingId);
+                return;
+            }
+
+            numberProcessingResult.AddDivisor(number);
+
+            if (IsPrime(number))
+                numberProcessingResult.AddPrime(number);
+
+            long secondPossibleDivisor = number / 2;
+
+            for (long i = secondPossibleDivisor; i > 0; i--)
+            {
+                if (IsDivisor(number, i))
                 {
-                    numberProcessingResult.AddDivider(i);
+                    numberProcessingResult.AddDivisor(i);
 
                     if (IsPrime(i))
                         numberProcessingResult.AddPrime(i);
@@ -73,8 +90,20 @@ namespace LocalizaLabs.Domain.Services.Services
             SetAsReady(numberProcessingId);
         }
 
-        private bool IsDivider(long number, long possibleDivider) =>
-            number % possibleDivider == 0;
+        private void MergeFromCacheResult(NumberProcessingResult numberProcessingResult, NumberProcessingResult cacheResult)
+        {
+            numberProcessingResult.AddDivisorRange(cacheResult.Divisors);
+            numberProcessingResult.AddPrimeRange(cacheResult.PrimeNumbers);
+            numberProcessingResult.End = DateTime.Now;
+        }
+
+        private NumberProcessingResult GetFromCache(long number) =>
+            SimulatedPersistence.Instance.NumberProcessingResults
+                .Where(npr => npr.Number == number)
+                .FirstOrDefault();
+
+        private bool IsDivisor(long number, long possibleDivisor) =>
+            number % possibleDivisor == 0;
 
         private bool IsPrime(long number)
         {
@@ -85,7 +114,7 @@ namespace LocalizaLabs.Domain.Services.Services
 
             for (long i = startNumber; i > 1; i--)
             {
-                if (IsDivider(number, i))
+                if (IsDivisor(number, i))
                     return false;
             }
 

@@ -9,7 +9,7 @@ namespace LocalizaLabs.Api.v1.Models.NumberProcessing
     {
         public Guid Id { get; set; }
         public long Number { get; set; }
-        public List<long> Dividers { get; private set; }
+        public List<long> Divisors { get; private set; }
         public List<long> PrimeNumbers { get; private set; }
         public DateTime Start { get; private set; }
         public DateTime? End { get; set; }
