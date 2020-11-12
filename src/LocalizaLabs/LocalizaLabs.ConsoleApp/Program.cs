@@ -47,7 +47,7 @@ namespace LocalizaLabs.ConsoleApp
             Console.WriteLine($"Número: {result.Number}");
             Console.WriteLine($"Início do processamento: {result.Start}");
             Console.WriteLine($"Fim do processamento: {result.End}");
-            Console.WriteLine($"Divisores: {string.Join(", ", result.Dividers)}");
+            Console.WriteLine($"Divisores: {string.Join(", ", result.Divisors)}");
             Console.WriteLine($"Divisores primos: {string.Join(", ", result.PrimeNumbers)}");
         }
 
