@@ -9,10 +9,6 @@ namespace LocalizaLabs.Domain.Services.Services
 {
     public class NumberProcessingService : INumberProcessingService
     {
-        public NumberProcessingService()
-        {
-        }
-
         public Guid RequestProcess(long number)
         {
             var numberProcessingId = Guid.NewGuid();
@@ -110,7 +106,7 @@ namespace LocalizaLabs.Domain.Services.Services
             if (number <= 1)
                 return false;
 
-            long startNumber = number - 1;
+            long startNumber = number / 2;
 
             for (long i = startNumber; i > 1; i--)
             {
