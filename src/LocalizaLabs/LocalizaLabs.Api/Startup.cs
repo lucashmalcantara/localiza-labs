@@ -1,3 +1,4 @@
+using LocalizaLabs.Api.v1.Configurations;
 using LocalizaLabs.Api.v1.Configurations.Swagger;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,6 +24,7 @@ namespace LocalizaLabs.Api
         {
             services.AddControllers();
             ConfigureSwagger(services);
+            services.AddDependencyInjectionConfiguration(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -75,6 +77,7 @@ namespace LocalizaLabs.Api
                 foreach (var description in apiVersionDescriptionProvider.ApiVersionDescriptions)
                 {
                     options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
+                    options.RoutePrefix = string.Empty;
                 }
             });
         }

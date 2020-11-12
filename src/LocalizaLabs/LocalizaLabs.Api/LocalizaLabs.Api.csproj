@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="v1\Models\" />
+    <ProjectReference Include="..\LocalizaLabs.Infrastructure.CrossCutting.IoC\LocalizaLabs.Infrastructure.CrossCutting.IoC.csproj" />
   </ItemGroup>
 
 

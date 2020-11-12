@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LocalizaLabs.Domain\LocalizaLabs.Domain.csproj" />
+    <ProjectReference Include="..\LocalizaLabs.Infrastructure.Persistence\LocalizaLabs.Infrastructure.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

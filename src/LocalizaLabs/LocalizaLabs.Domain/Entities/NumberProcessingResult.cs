@@ -5,29 +5,36 @@ namespace LocalizaLabs.Domain.Entities
 {
     public class NumberProcessingResult
     {
-        public int Number { get; set; }
-        public List<int> Dividers { get; private set; }
-        public List<int> PrimeNumbers { get; private set; }
+        public Guid Id { get; set; }
+        public long Number { get; set; }
+        public List<long> Dividers { get; private set; }
+        public List<long> PrimeNumbers { get; private set; }
         public DateTime Start { get; private set; }
         public DateTime? End { get; set; }
 
-        public NumberProcessingResult(DateTime start)
+        public NumberProcessingResult(Guid id, long number, DateTime start)
         {
+            Id = id;
+            Number = number;
             Start = start;
-            Dividers = new List<int>();
-            PrimeNumbers = new List<int>();
+            Dividers = new List<long>();
+            PrimeNumbers = new List<long>();
         }
 
-        public void AddDivider(int number)
+        public void AddDivider(long number)
         {
             if (number <= 0)
                 throw new ArgumentOutOfRangeException(nameof(number), $"The number {number} is not a valid divider.");
+
+            Dividers.Add(number);
         }
 
-        public void AddPrime(int number)
+        public void AddPrime(long number)
         {
             if (number <= 1)
                 throw new ArgumentOutOfRangeException(nameof(number), $"The number {number} is not a valid prime number.");
+
+            PrimeNumbers.Add(number);
         }
     }
 }

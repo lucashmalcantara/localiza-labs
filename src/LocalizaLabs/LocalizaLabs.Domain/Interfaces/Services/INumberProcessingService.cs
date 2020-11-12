@@ -1,11 +1,11 @@
-﻿using LocalizaLabs.Domain.Entities;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace LocalizaLabs.Domain.Interfaces.Services
 {
     public interface INumberProcessingService
     {
-        Task<NumberProcessingResult> ProcessAsync(int number);
-        NumberProcessingResult Process(int number);
+        Guid RequestProcess(long number);
+        //Task<NumberProcessingResult> ProcessAsync(long number);
+        //NumberProcessingResult Process(long number);
     }
 }
