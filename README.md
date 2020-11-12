@@ -22,6 +22,7 @@ Este projeto apresenta uma solução para o desafio Momento mão na massa - Loca
 - Processamento assíncrono;
 - Gerenciamento de filas;
 - Testes de *software*;
+- Versionamento semântico;
 - Dentre outros.
 
 
