@@ -13,7 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizaLabs.Infrastructure
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizaLabs.Infrastructure.Persistence", "LocalizaLabs.Infrastructure.Persistence\LocalizaLabs.Infrastructure.Persistence.csproj", "{C21541BD-0904-4E83-9453-AFA99B90F319}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizaLabs.ConsoleApp", "LocalizaLabs.ConsoleApp\LocalizaLabs.ConsoleApp.csproj", "{B92A89A4-295F-4D64-8D29-E3FBEA139806}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalizaLabs.ConsoleApp", "LocalizaLabs.ConsoleApp\LocalizaLabs.ConsoleApp.csproj", "{B92A89A4-295F-4D64-8D29-E3FBEA139806}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9FF64EA3-7EA4-484C-ACE9-D0E7E1733C4C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0F499C9F-4F41-4E33-B78A-F4EF040C00A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalizaLabs.Domain.Services.Tests", "LocalizaLabs.Domain.Services.Tests\LocalizaLabs.Domain.Services.Tests.csproj", "{D8251B37-7760-4407-89D6-99E139F508C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,9 +51,22 @@ Global
 		{B92A89A4-295F-4D64-8D29-E3FBEA139806}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B92A89A4-295F-4D64-8D29-E3FBEA139806}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B92A89A4-295F-4D64-8D29-E3FBEA139806}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8251B37-7760-4407-89D6-99E139F508C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8251B37-7760-4407-89D6-99E139F508C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8251B37-7760-4407-89D6-99E139F508C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8251B37-7760-4407-89D6-99E139F508C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A4913B5A-F87C-4644-B858-96D80BD605E5} = {9FF64EA3-7EA4-484C-ACE9-D0E7E1733C4C}
+		{B49CA261-9491-4199-8809-1BE8D8713865} = {9FF64EA3-7EA4-484C-ACE9-D0E7E1733C4C}
+		{F232A98F-F3DD-4B53-BECF-EF11D97097C0} = {9FF64EA3-7EA4-484C-ACE9-D0E7E1733C4C}
+		{58239505-32B2-4F09-AF2A-DD2CDB5C8394} = {9FF64EA3-7EA4-484C-ACE9-D0E7E1733C4C}
+		{C21541BD-0904-4E83-9453-AFA99B90F319} = {9FF64EA3-7EA4-484C-ACE9-D0E7E1733C4C}
+		{B92A89A4-295F-4D64-8D29-E3FBEA139806} = {9FF64EA3-7EA4-484C-ACE9-D0E7E1733C4C}
+		{D8251B37-7760-4407-89D6-99E139F508C3} = {0F499C9F-4F41-4E33-B78A-F4EF040C00A4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CF361108-559E-4EB8-9847-DA0B7C0B41BF}
