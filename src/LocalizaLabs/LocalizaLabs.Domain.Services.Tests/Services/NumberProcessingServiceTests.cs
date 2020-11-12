@@ -25,7 +25,7 @@ namespace LocalizaLabs.Domain.Services.Tests.Services
             const long number = 100000;
 
             #region Expected object
-            var expectedDividers = new List<long> {
+            var expectedDivisors = new List<long> {
                 1, 2, 4, 5, 8, 10, 16, 20, 25, 32, 40, 50, 80, 100,
                 125, 160, 200, 250, 400, 500, 625, 800, 1000, 1250,
                 2000, 2500, 3125, 4000, 5000, 6250, 10000, 12500, 20000,
@@ -46,10 +46,10 @@ namespace LocalizaLabs.Domain.Services.Tests.Services
 
             NumberProcessingResult result = _numberProcessingService.GetResult(numberProcessingId);
 
-            result.Dividers.Sort();
-            expectedDividers.Sort();
+            result.Divisors.Sort();
+            expectedDivisors.Sort();
 
-            CollectionAssert.AreEqual(expectedDividers, result.Dividers);
+            CollectionAssert.AreEqual(expectedDivisors, result.Divisors);
         }
 
         [TestMethod]

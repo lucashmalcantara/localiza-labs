@@ -7,7 +7,7 @@ namespace LocalizaLabs.Domain.Entities
     {
         public Guid Id { get; set; }
         public long Number { get; set; }
-        public List<long> Dividers { get; private set; }
+        public List<long> Divisors { get; private set; }
         public List<long> PrimeNumbers { get; private set; }
         public DateTime Start { get; private set; }
         public DateTime? End { get; set; }
@@ -17,17 +17,20 @@ namespace LocalizaLabs.Domain.Entities
             Id = id;
             Number = number;
             Start = start;
-            Dividers = new List<long>();
+            Divisors = new List<long>();
             PrimeNumbers = new List<long>();
         }
 
-        public void AddDivider(long number)
+        public void AddDivisor(long number)
         {
             if (number <= 0)
-                throw new ArgumentOutOfRangeException(nameof(number), $"The number {number} is not a valid divider.");
+                throw new ArgumentOutOfRangeException(nameof(number), $"The number {number} is not a valid Divisor.");
 
-            Dividers.Add(number);
+            Divisors.Add(number);
         }
+
+        public void AddDivisorRange(List<long> numbers) =>
+            numbers.ForEach(n => AddDivisor(n));
 
         public void AddPrime(long number)
         {
@@ -36,5 +39,8 @@ namespace LocalizaLabs.Domain.Entities
 
             PrimeNumbers.Add(number);
         }
+
+        public void AddPrimeRange(List<long> numbers) =>
+            numbers.ForEach(n => AddPrime(n));
     }
 }
